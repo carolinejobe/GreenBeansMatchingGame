@@ -1,12 +1,10 @@
-mport java.awt.event.ItemEvent;
+import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.util.ArrayList;
-
 import javax.swing.JToggleButton;
 
 public class Cards extends JToggleButton {
 
-	private static Cards cards[];
+	private static Cards cards[] = new Cards[16];
 	private static int Attempts;
 	private static int Score;
 	static String[] cardImage = new String[2];
@@ -24,12 +22,6 @@ public class Cards extends JToggleButton {
 	// TODO CODE FOR CHANGING CARDBACK TO CARDFRONT FOR BOTH BUTTONS
 	// TODO DISABLE BUTTONS ON ACTIVATION, REENABLE ON DEACTIVATION WHEN NON
 	// MATCH
-	private Cards() {
-	}
-
-	public static Cards[] getCards() {
-		return cards;
-	}
 
 	/**
 	 * 
@@ -70,19 +62,23 @@ public class Cards extends JToggleButton {
 	/**
 	 * sets the icons for a card in the form of a String Array with 2 positions
 	 */
-	private static void setCardImage(String cardFace) {
+	private void setCardImage(String cardFace) {
 		cardImage[0] = "PATH OF CARD BACK";
 		cardImage[1] = cardFace;
 	}
-	
-	int j =0;
-	
-	  for (int i=0;i<cardList.length;i+2){
-	 	
-	 cards[i].setCardImage(cardFaces[j]);
-	 cards[i+1].setCardImage(cardFaces[j]);
-	j++;
-	  }
-	 }
-	 
+
+	/**
+	 * iterates over every card object in array cards to set card images for
+	 * front and back
+	 */
+	public static void setCardImages() {
+		int j = 0;
+
+		for (int i = 0; i < cards.length; i = i + 2) {
+
+			cards[i].setCardImage(cardFaces[j]);
+			cards[i + 1].setCardImage(cardFaces[j]);
+			j++;
+		}
+	}
 }
