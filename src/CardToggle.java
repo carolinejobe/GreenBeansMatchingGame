@@ -9,6 +9,8 @@ public class CardToggle extends JToggleButton {
 	private static CardToggle cards[];
 	private static int Attempts;
 	private static int Score;
+	static String[] cardIcons = new String[2];
+	static String[] cardFaces = {"Path1", "Path2","Path3","Path4","Path5","Path6","Path7","Path8"};
 	
 	
 	/**
@@ -64,4 +66,13 @@ public class CardToggle extends JToggleButton {
 	
 	}
 	
+	public String[] getCardIcons(){
+		return cardIcons;
+	}
+	public static void setCardIcons(){
+		cardIcons[0]="PATH OF CARD BACK";
+		cardIcons[1]= cardFaces[i];
+	}
 }
+
+
