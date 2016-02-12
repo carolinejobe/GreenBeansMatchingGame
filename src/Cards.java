@@ -1,10 +1,13 @@
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.ArrayList;
+import java.util.Collections;
+
 import javax.swing.JToggleButton;
 
 public class Cards extends JToggleButton {
 
-	private static Cards cards[] = new Cards[16];
+	public static Cards cards[] = new Cards[16];
 	private static int Attempts;
 	private static int Score;
 	static String[] cardImage = new String[2];
@@ -28,7 +31,7 @@ public class Cards extends JToggleButton {
 	 * @param int
 	 *            x where x is a card object in an array
 	 */
-	public static void makeCard(int x) {
+	public static void activateCard(int x) {
 		cards[x].addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent ev) {
 				if (ev.getStateChange() == ItemEvent.SELECTED) {
@@ -80,5 +83,14 @@ public class Cards extends JToggleButton {
 			cards[i + 1].setCardImage(cardFaces[j]);
 			j++;
 		}
+	}
+	
+	public static void randomizeCards() {
+		
+		ArrayList<Cards> randomCardList = new ArrayList<>();
+		for (int i = 0; i<Cards.cards.length; i++) {
+			randomCardList.add(Cards.cards[i]);
+		}
+		Collections.shuffle(randomCardList);
 	}
 }
