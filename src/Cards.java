@@ -7,7 +7,7 @@ import javax.swing.JToggleButton;
 
 public class Cards extends JToggleButton {
 
-	public static Cards cards[] = new Cards[16];
+	public static ArrayList<Cards> cards = new ArrayList<Cards>(16);
 	private static int Attempts;
 	private static int Score;
 	static String[] cardImage = new String[2];
@@ -32,25 +32,25 @@ public class Cards extends JToggleButton {
 	 *            x where x is a card object in an array
 	 */
 	public static void activateCard(int x) {
-		cards[x].addItemListener(new ItemListener() {
+		cards.get(x).addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent ev) {
 				if (ev.getStateChange() == ItemEvent.SELECTED) {
-					for (int y = 0; y < cards.length; y++) {
-						if (cards[y] == cards[x]) {
+					for (int y = 0; y < cards.size(); y++) {
+						if (cards.get(y) == cards.get(x)) {
 							continue;
-						} else if ((cards[y]).isSelected()) {
+						} else if ((cards.get(y)).isSelected()) {
 
-							for (int i = 0; i < cards.length; i++) {
-								if (cards[i] == cards[x]) {
+							for (int i = 0; i < cards.size(); i++) {
+								if (cards.get(i) == cards.get(x)) {
 									continue;
-								} else if (cards[x].getSelectedIcon().equals(cards[i].getSelectedIcon())) {
-									cards[x].setEnabled(false);
-									cards[i].setEnabled(false);
+								} else if (cards.get(x).getSelectedIcon().equals(cards.get(i).getSelectedIcon())) {
+									cards.get(x).setEnabled(false);
+									cards.get(i).setEnabled(false);
 									Score++;
 
 								} else
-									cards[x].setSelected(false);
-								cards[i].setSelected(false);
+									cards.get(x).setSelected(false);
+								cards.get(i).setSelected(false);
 
 								Attempts++;
 							}
@@ -77,20 +77,15 @@ public class Cards extends JToggleButton {
 	public static void setCardImages() {
 		int j = 0;
 
-		for (int i = 0; i < cards.length; i = i + 2) {
+		for (int i = 0; i < cards.size(); i = i + 2) {
 
-			cards[i].setCardImage(cardFaces[j]);
-			cards[i + 1].setCardImage(cardFaces[j]);
+			cards.get(i).setCardImage(cardFaces[j]);
+			cards.get(i + 1).setCardImage(cardFaces[j]);
 			j++;
 		}
 	}
 	
 	public static void randomizeCards() {
-		
-		ArrayList<Cards> randomCardList = new ArrayList<>();
-		for (int i = 0; i<Cards.cards.length; i++) {
-			randomCardList.add(Cards.cards[i]);
-		}
-		Collections.shuffle(randomCardList);
+		Collections.shuffle(cards);
 	}
 }
