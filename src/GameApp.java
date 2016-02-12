@@ -12,6 +12,13 @@ import javax.swing.JMenuItem;
 import javax.swing.JToggleButton;
 public class GameApp {
 	private JFrame frame;
+	
+	//setCardimages
+	//randomizeCards
+	//initialize buttons as new cards// assign cards to JToggle buttons
+	//each button calls activateCard(int cardNumber 0-15)
+	
+	
 	/**
 	 * Launch the application.
 	 */
