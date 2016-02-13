@@ -9,7 +9,7 @@ public class DeckOfCards {
 	public ArrayList<Card> cards = new ArrayList<Card>(16);
 	String[] cardFacesFileName = { "AmbassadorBridge.jpg", "ComericaPark.jpg", "FordField.jpg", "HitsvilleUsa.jpg", "JoeLouisFist.jpg", "RenCen.jpg", "SpiritOfDetroit.jpg", "UniroyalTire.jpg" };//Done - TODO CHANGE to path of card face file names
 	
-	
+	//DeckOfCards constructor
 	public DeckOfCards() {
 		//use for loop to create arrayList of cards that has Card in each element
 		for (int k = 0; k< 16; k++){

@@ -7,7 +7,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JToggleButton;
 
-public class Card extends JToggleButton {
+public class Card {
 
 	static int Touch;
 	static int Score;
@@ -20,7 +20,6 @@ public class Card extends JToggleButton {
 		cardImage[0] = new ImageIcon( "GC-tent.png");//Done - TODO set to path of card back file name
 		cardImage[1] = new ImageIcon(cardFace);
 	}
-	
 	
 	/**
 	* TODO figure out how to compare icons(by string value)

@@ -16,10 +16,9 @@ public class GameApp {
 	private JFrame frame;
 	private DeckOfCards deck;
 	
-	//initialize buttons as new cards// assign cards to JToggle buttons
+	//assign cards to JToggle buttons
 	
 	//each button calls activateCard(int cardNumber 0-15)
-	
 	
 	/**
 	 * Launch the application.
@@ -51,6 +50,7 @@ public class GameApp {
 	private void initialize() {
 
 		deck= new DeckOfCards();
+		Card.activateCard(0);
 		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 600, 600);
@@ -59,6 +59,7 @@ public class GameApp {
 		
 		JToggleButton tglbtnCard = new JToggleButton("Card 1");
 		frame.getContentPane().add(tglbtnCard);
+		
 		
 		JToggleButton tglbtnCard_1 = new JToggleButton("Card 2");
 		frame.getContentPane().add(tglbtnCard_1);
