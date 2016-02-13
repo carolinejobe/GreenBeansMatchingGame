@@ -11,6 +11,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JToggleButton;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 public class GameApp {
 	private JFrame frame;
 	
@@ -112,5 +113,11 @@ public class GameApp {
 		
 		JMenuItem mntmExit = new JMenuItem("Exit");
 		mnFile.add(mntmExit);
+		
+		JLabel lblNewLabel = new JLabel("[Placeholder for Timer]");
+		menuBar.add(lblNewLabel);
+		
+		JLabel label = new JLabel("[Placeholder for # of Attempts]");
+		menuBar.add(label);
 	}
 }

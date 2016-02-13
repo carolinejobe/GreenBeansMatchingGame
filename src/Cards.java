@@ -12,7 +12,7 @@ public class Cards extends JToggleButton {
 	public static ArrayList<Cards> cards = new ArrayList<Cards>(16);
 	static int Touch;
 	static int Score;
-	static String[] cardFacesFileName = { "Path1", "Path2", "Path3", "Path4", "Path5", "Path6", "Path7", "Path8" };//TODO CHANGE to path of card face file names
+	static String[] cardFacesFileName = { "AmbassadorBridge.jpg", "ComericaPark.jpg", "FordField.jpg", "HitsvilleUsa.jpg", "JoeLouisFist.jpg", "RenCen.jpg", "SpiritOfDetroit.jpg", "UniroyalTire.jpg" };//Done - TODO CHANGE to path of card face file names
 	static Icon[] cardImage = new Icon[2];
 
 	/**
@@ -70,7 +70,7 @@ public class Cards extends JToggleButton {
 	 * sets the icons for a card in the form of a String Array with 2 positions
 	 */
 	private void setCardImage(String cardFace) {
-		cardImage[0] = new ImageIcon( "PATH OF CARD BACK");//TODO set to path of card back file name
+		cardImage[0] = new ImageIcon( "GC-tent.png");//Done - TODO set to path of card back file name
 		cardImage[1] = new ImageIcon(cardFace);
 	}
 
