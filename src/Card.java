@@ -11,14 +11,14 @@ public class Card {
 
 	static int Touch;
 	static int Score;
-	Icon[] cardImage = new Icon[2];
+	String[] cardImage = new String[2];
 
 	/**
 	 * sets the icons for a card in the form of a String Array with 2 positions
 	 */
 	public void setCardImage(String cardFace) {
-		cardImage[0] = new ImageIcon("Images/GC-tent.png");//Done - TODO set to path of card back file name
-		cardImage[1] = new ImageIcon(cardFace);
+		cardImage[0] = "Images/GC-tent.png";//Done - TODO set to path of card back file name
+		cardImage[1] = cardFace;
 	}
 	
 	/**
