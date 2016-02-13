@@ -7,25 +7,25 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JToggleButton;
 
-public class Cards extends JToggleButton {
+public class Card extends JToggleButton {
 
-	public static ArrayList<Cards> cards = new ArrayList<Cards>(16);
 	static int Touch;
 	static int Score;
-	static String[] cardFacesFileName = { "AmbassadorBridge.jpg", "ComericaPark.jpg", "FordField.jpg", "HitsvilleUsa.jpg", "JoeLouisFist.jpg", "RenCen.jpg", "SpiritOfDetroit.jpg", "UniroyalTire.jpg" };//Done - TODO CHANGE to path of card face file names
-	static Icon[] cardImage = new Icon[2];
+	Icon[] cardImage = new Icon[2];
 
+	/**
+	 * sets the icons for a card in the form of a String Array with 2 positions
+	 */
+	public void setCardImage(String cardFace) {
+		cardImage[0] = new ImageIcon( "GC-tent.png");//Done - TODO set to path of card back file name
+		cardImage[1] = new ImageIcon(cardFace);
+	}
+	
+	
 	/**
 	* TODO figure out how to compare icons(by string value)
 	*
-	*
-	*TODO set icon to card back when card is initalized
-	*
-	*/
-	/**
-	 * 
-	 * @param int
-	 *            x where x is a card object in an array
+	 * @param int x where x is a card object in an array
 	 */
 	public static void activateCard(int x) {
 		cards.get(x).addItemListener(new ItemListener() {
@@ -66,32 +66,4 @@ public class Cards extends JToggleButton {
 
 	}
 
-	/**
-	 * sets the icons for a card in the form of a String Array with 2 positions
-	 */
-	private void setCardImage(String cardFace) {
-		cardImage[0] = new ImageIcon( "GC-tent.png");//Done - TODO set to path of card back file name
-		cardImage[1] = new ImageIcon(cardFace);
-	}
-
-	/**
-	 * iterates over every card object in array cards to set card images for
-	 * front and back
-	 */
-	public static void setCardImages() {
-		int j = 0;
-
-		for (int i = 0; i < cards.size(); i = i + 2) {
-
-			cards.get(i).setCardImage(cardFacesFileName[j]);
-			cards.get(i + 1).setCardImage(cardFacesFileName[j]);
-			j++;
-		}
-	}
-	/**
-	 * 
-	 */
-	public static void randomizeCards() {
-		Collections.shuffle(cards);
-	}
 }

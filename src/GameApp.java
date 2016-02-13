@@ -14,10 +14,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 public class GameApp {
 	private JFrame frame;
+	private DeckOfCards deck;
 	
-	//setCardimages
-	//randomizeCards
 	//initialize buttons as new cards// assign cards to JToggle buttons
+	
 	//each button calls activateCard(int cardNumber 0-15)
 	
 	
@@ -25,6 +25,8 @@ public class GameApp {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -41,11 +43,15 @@ public class GameApp {
 	 */
 	public GameApp() {
 		initialize();
+		
 	}
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+
+		deck= new DeckOfCards();
+		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 600, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

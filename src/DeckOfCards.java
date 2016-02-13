@@ -1,0 +1,43 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
+public class DeckOfCards {
+
+	public ArrayList<Card> cards = new ArrayList<Card>(16);
+	String[] cardFacesFileName = { "AmbassadorBridge.jpg", "ComericaPark.jpg", "FordField.jpg", "HitsvilleUsa.jpg", "JoeLouisFist.jpg", "RenCen.jpg", "SpiritOfDetroit.jpg", "UniroyalTire.jpg" };//Done - TODO CHANGE to path of card face file names
+	
+	
+	public DeckOfCards() {
+		//use for loop to create arrayList of cards that has Card in each element
+		for (int k = 0; k< 16; k++){
+			cards.add(new Card());
+		}
+		//call setCardImages to assign face and back to each Card in the arrayList cards
+		this.setCardImages(); 
+		this.randomizeCards();
+	}
+	
+	/**
+	 * iterates over every card object in array cards to set card images for
+	 * front and back
+	 */
+	public void setCardImages() {
+		int j = 0;
+
+		for (int i = 0; i < cards.size(); i = i + 2) {
+			cards.get(i).setCardImage(cardFacesFileName[j]);
+			cards.get(i + 1).setCardImage(cardFacesFileName[j]);
+			j++;
+		}
+	}
+
+	/*
+	 * randomizes or shuffles the ArrayList cards prior to assigning them to JToggleButtons
+	*/
+	public void randomizeCards() {
+		Collections.shuffle(cards);
+	}
+}
