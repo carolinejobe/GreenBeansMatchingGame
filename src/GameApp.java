@@ -141,7 +141,14 @@ public class GameApp {
 		mnFile.add(mntmLeaderboard);
 		
 		JMenuItem mntmExit = new JMenuItem("Exit");
+		mntmExit.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e)
+		    {
+		        System.exit(0);
+		    }
+		});
 		mnFile.add(mntmExit);
+		
 		
 		JLabel lblNewLabel = new JLabel("[Placeholder for Timer]");
 		menuBar.add(lblNewLabel);
