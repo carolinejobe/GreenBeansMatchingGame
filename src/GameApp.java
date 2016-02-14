@@ -19,6 +19,9 @@ import javax.swing.JLabel;
 public class GameApp {
 	private JFrame frame;
 	private DeckOfCards deck;
+	int touch=0;
+	int attempts = touch/2;
+	int score=0;
 	
 	//assign cards to JToggle buttons
 	
@@ -143,46 +146,48 @@ public class GameApp {
 		JLabel lblNewLabel = new JLabel("[Placeholder for Timer]");
 		menuBar.add(lblNewLabel);
 		
-		JLabel label = new JLabel(Integer.toString(Card.Attempts));
+		JLabel label = new JLabel(Integer.toString(attempts));
 		menuBar.add(label);
 	}
 	
-	/*public static void activateCard(int x) {
-		cards.get(x).addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent ev) {
-				if (ev.getStateChange() == ItemEvent.SELECTED) {
-					//TODO code for setting image to card back
-					cards.get(x).setIcon(cardImage[1]);
-					cards.get(x).setEnabled(false);//disables clicking on  a card after it's been clicked once
-					for (int y = 0; y < cards.size(); y++) {
-						if (cards.get(y) == cards.get(x)) {//checks if a selected card is the same as itself, skips rest of loop if true
-							continue;
-						} else if ((cards.get(y)).isSelected()) {
-							//if a card other than the selected card is also selected
-							for (int i = 0; i < cards.size(); i++) {
-								if (cards.get(i) == cards.get(x)) {//if selected card is the same as itself, skip over rest of loop
-									continue;
-								} else if (cards.get(x).getSelectedIcon().equals(cards.get(i).getSelectedIcon())) {
-									Score++;//iterate score if cards match
-									
-
-								} else if(cards.get(x).getSelectedIcon().equals(cards.get(i).getSelectedIcon())){
-									
-									cards.get(x).setIcon(cardImage[0]);
-									cards.get(i).setIcon(cardImage[0]);
-								} //deselects cards
-									cards.get(x).setSelected(false);
-									cards.get(i).setSelected(false);
-								
-
-									
-							}
-						}
-					}
-					Touch++;
-				}
-			}
-		});
-
-	}*/
+	//TODO figure out how to add this to each button where x is the button number
+	
+//	public  void activateCard(int x) {
+//		deck.cards.get(x).addItemListener(new ItemListener() {
+//			public void itemStateChanged(ItemEvent ev) {
+//				if (ev.getStateChange() == ItemEvent.SELECTED) {
+//					
+//					deck.cards.get(x).setIcon(cardImage[1]);
+//					deck.cards.get(x).setEnabled(false);//disables clicking on  a card after it's been clicked once
+//					for (int y = 0; y < deck.cards.size(); y++) {
+//						if (deck.cards.get(y) == deck.cards.get(x)) {//checks if a selected card is the same as itself, skips rest of loop if true
+//							continue;
+//						} else if ((deck.cards.get(y)).isSelected()) {
+//							//if a card other than the selected card is also selected
+//							for (int i = 0; i < deck.cards.size(); i++) {
+//								if (deck.cards.get(i) == deck.cards.get(x)) {//if selected card is the same as itself, skip over rest of loop
+//									continue;
+//								} else if (deck.cards.get(x).getSelectedIcon().equals(deck.cards.get(i).getSelectedIcon())) {
+//									score++;//iterate score if cards match
+//									
+//
+//								} else if(deck.cards.get(x).getSelectedIcon().equals(deck.cards.get(i).getSelectedIcon())){
+//									
+//									deck.cards.get(x).setIcon(deck.cardImage[0]);
+//									deck.cards.get(i).setIcon(deck.cardImage[0]);
+//								} //deselects cards
+//									deck.cards.get(x).setSelected(false);
+//									deck.cards.get(i).setSelected(false);
+//								
+//
+//									
+//							}
+//						}
+//					}
+//					touch++;
+//				}
+//			}
+//		});
+//
+//	}
 }

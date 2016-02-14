@@ -18,7 +18,7 @@ public class Card {
 	 * sets the icons for a card in the form of a String Array with 2 positions
 	 */
 	public void setCardImage(String cardFace) {
-		cardImage[0] = "Images/GC-tent.png";//Done - TODO set to path of card back file name
+		cardImage[0] = "Images/GC-tent.png";
 		cardImage[1] = cardFace;
 	}
 	
@@ -28,5 +28,5 @@ public class Card {
 	 * @param int x where x is a card object in an array
 	 */
 
-
+	
 }
