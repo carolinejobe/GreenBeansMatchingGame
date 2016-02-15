@@ -1,9 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-
 public class DeckOfCards {
 
 	public ArrayList<Card> cards = new ArrayList<Card>(16);
@@ -16,8 +13,9 @@ public class DeckOfCards {
 			cards.add(new Card());
 		}
 		//call setCardImages to assign face and back to each Card in the arrayList cards
-		this.setCardImages(); 
-		this.randomizeCards();
+		setCardImages(); 
+		//call randomize cards to assign faces to random JToggle buttons on the game board
+		randomizeCards();
 	}
 	
 	/**

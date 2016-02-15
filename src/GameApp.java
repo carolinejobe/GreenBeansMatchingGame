@@ -1,19 +1,12 @@
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import java.awt.GridLayout;
-import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.awt.event.ActionEvent;
-import javax.swing.SwingConstants;
-import java.awt.Color;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JToggleButton;
-import javax.swing.ButtonModel;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -136,6 +129,12 @@ public class GameApp {
 		menuBar.add(mnFile);
 		
 		JMenuItem mntmNewGame = new JMenuItem("New Game");
+		mntmNewGame.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e)
+		    {
+		        deck.randomizeCards();
+		    }
+		});
 		mnFile.add(mntmNewGame);
 		
 		JMenuItem mntmLeaderboard = new JMenuItem("Leaderboard");
@@ -153,49 +152,10 @@ public class GameApp {
 		
 		JLabel lblNewLabel = new JLabel("Timer: " + Timer.elapsedTime);
 		menuBar.add(lblNewLabel);
-		
+
 		JLabel label = new JLabel("         Attempts: " + Integer.toString(attempts));
 		menuBar.add(label);
 	}
-	
-	//TODO figure out how to add this to each button where x is the button number
-/*
-	public void activateCard(int x) {
-		deck.cards.get(x).addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent ev) {
-				if (ev.getStateChange() == ItemEvent.SELECTED) {
-					
-					deck.cards.get(x).setIcon(deck.cardImage[1]);
-					deck.cards.get(x).setEnabled(false);//disables clicking on  a card after it's been clicked once
-					for (int y = 0; y < deck.cards.size(); y++) {
-						if (deck.cards.get(y) == deck.cards.get(x)) {//checks if a selected card is the same as itself, skips rest of loop if true
-							continue;
-						} else if ((deck.cards.get(y)).isSelected()) {
-							//if a card other than the selected card is also selected
-							for (int i = 0; i < deck.cards.size(); i++) {
-							if (deck.cards.get(i) == deck.cards.get(x)) {//if selected card is the same as itself, skip over rest of loop
-									continue;
-								} else if (deck.cards.get(x).getSelectedIcon().equals(deck.cards.get(i).getSelectedIcon())) {
-									score++;//iterate score if cards match
-									
 
-								} else if(deck.cards.get(x).getSelectedIcon().equals(deck.cards.get(i).getSelectedIcon())){
-									
-									deck.cards.get(x).setIcon(deck.cardImage[0]);
-									deck.cards.get(i).setIcon(deck.cardImage[0]);
-								} //deselects cards
-									deck.cards.get(x).setSelected(false);
-									deck.cards.get(i).setSelected(false);
-								
 
-									
-							}
-					}
-			}
-					touch++;
-				}
-			}
-		});
-}
-*/
 }

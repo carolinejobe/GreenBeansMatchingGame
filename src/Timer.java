@@ -1,5 +1,4 @@
-import java.util.Date;
-import java.util.TimerTask;
+
 
 public class Timer {
 
@@ -7,7 +6,7 @@ public class Timer {
 	 * @param args
 	 */
 	
-
+		
 		static long startTime = System.currentTimeMillis();
 		static long elapsedTime = System.currentTimeMillis() - startTime;
 		long elapsedSeconds = elapsedTime / 1000;
