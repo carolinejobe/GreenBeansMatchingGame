@@ -1,14 +1,17 @@
 import java.awt.EventQueue;
-import javax.swing.JFrame;
 import java.awt.GridLayout;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JMenuBar;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
+import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JToggleButton;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 
 public class GameApp {
 	private JFrame frame;
@@ -54,9 +57,44 @@ public class GameApp {
 		frame.getContentPane().setLayout(new GridLayout(0, 4, 2, 2));
 		
 		
-		JToggleButton tglbtnCard = new JToggleButton(new ImageIcon(deck.cards.get(0).cardImage[0]));
-		tglbtnCard.setSelectedIcon(new ImageIcon(deck.cards.get(0).cardImage[1]));
+		JToggleButton tglbtnCard = new JToggleButton(deck.cards.get(0).cardIcon[0]);
+//		tglbtnCard.setSelectedIcon(deck.cards.get(0).cardIcon[1]);
 		frame.getContentPane().add(tglbtnCard);
+		tglbtnCard.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent ev) {
+				if (ev.getStateChange() == ItemEvent.SELECTED) {
+					
+					deck.cards.get(0).setIcon(deck.cards.get(0).cardIcon[1]);
+					deck.cards.get(0).setEnabled(false);//disables clicking on  a card after it's been clicked once
+					for (int y = 0; y < deck.cards.size(); y++) {
+						if (deck.cards.get(y) == deck.cards.get(0)) {//checks if a selected card is the same as itself, skips rest of loop if true
+							continue;
+						} else if ((deck.cards.get(y)).isSelected()) {
+							//if a card other than the selected card is also selected
+							for (int i = 0; i < deck.cards.size(); i++) {
+							if (deck.cards.get(i) == deck.cards.get(0)) {//if selected card is the same as itself, skip over rest of loop
+									continue;
+								} else if (deck.cards.get(0).getSelectedIcon().equals(deck.cards.get(i).getSelectedIcon())) {
+									score++;//iterate score if cards match
+									
+
+								} else if(deck.cards.get(0).getSelectedIcon().equals(deck.cards.get(i).getSelectedIcon())){
+									
+									deck.cards.get(0).setIcon(deck.cards.get(0).cardIcon[0]);
+									deck.cards.get(i).setIcon(deck.cards.get(0).cardIcon[0]);
+								} //deselects cards
+									deck.cards.get(0).setSelected(false);
+									deck.cards.get(i).setSelected(false);
+								
+
+									
+							}
+					}
+			}
+					touch++;
+				}
+			}
+		});
 		
 		JToggleButton tglbtnCard_1 = new JToggleButton(new ImageIcon(deck.cards.get(0).cardImage[0]));
 		tglbtnCard_1.setSelectedIcon(new ImageIcon(deck.cards.get(1).cardImage[1]));

@@ -1,7 +1,9 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class DeckOfCards {
+import javax.swing.JToggleButton;
+
+public class DeckOfCards extends JToggleButton {
 
 	public ArrayList<Card> cards = new ArrayList<Card>(16);
 	String[] cardFacesFileName = { "Images/AmbassadorBridge.jpg", "Images/ComericaPark.jpg", "Images/FordField.jpg", "Images/HitsvilleUsa.jpg", "Images/JoeLouisFist.jpg", "Images/RenCen.jpg", "Images/SpiritOfDetroit.jpg", "Images/UniroyalTire.jpg" };//Done - TODO CHANGE to path of card face file names

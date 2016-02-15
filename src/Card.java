@@ -1,11 +1,13 @@
+import javax.swing.ImageIcon;
+import javax.swing.JToggleButton;
 
-
-public class Card {
+public class Card extends JToggleButton {
 
 //	static int Touch;
 //	public static int Attempts = Touch/2;
 //	static int Score;
 	String[] cardImage = new String[2];
+	ImageIcon[] cardIcon = new ImageIcon[2];
 
 	/**
 	 * sets the icons for a card in the form of a String Array with 2 positions
@@ -13,11 +15,14 @@ public class Card {
 	public void setCardImage(String cardFace) {
 		cardImage[0] = "Images/GC-tent.png";
 		cardImage[1] = cardFace;
+		setImageIcon();
 	}
-
-	public boolean isSelected() {
-		// TODO Auto-generated method stub
-		return false;
+/**
+ * creates ImageIcons out of the cardImage String[]
+ */
+	public void setImageIcon(){
+		cardIcon[0]= new ImageIcon(cardImage[0]);
+		cardIcon[1]= new ImageIcon(cardImage[1]);
 	}
 	
 	/**
