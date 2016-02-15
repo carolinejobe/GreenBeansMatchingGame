@@ -159,13 +159,13 @@ public class GameApp {
 	}
 	
 	//TODO figure out how to add this to each button where x is the button number
-/*	
+/*
 	public void activateCard(int x) {
 		deck.cards.get(x).addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent ev) {
 				if (ev.getStateChange() == ItemEvent.SELECTED) {
 					
-					deck.cards.get(x).setIcon(Card.cardImage[1]);
+					deck.cards.get(x).setIcon(deck.cardImage[1]);
 					deck.cards.get(x).setEnabled(false);//disables clicking on  a card after it's been clicked once
 					for (int y = 0; y < deck.cards.size(); y++) {
 						if (deck.cards.get(y) == deck.cards.get(x)) {//checks if a selected card is the same as itself, skips rest of loop if true
