@@ -17,10 +17,6 @@ public class GameApp {
 	int attempts = touch/2;
 	int score=0;
 	
-	//assign cards to JToggle buttons
-	
-	//each button calls activateCard(int cardNumber 0-15)
-	
 	/**
 	 * Launch the application.
 	 */
